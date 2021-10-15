@@ -1,0 +1,34 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(238, 238, 238);
+}
+
+.gifback{
+  background-image: url(https://www.wallpapertip.com/wmimgs/33-334914_8-bit-wallpaper-tablet-src-8-bit-wallpaper.jpg);
+  object-fit: fill;
+}
+
+main {
+ flex-grow: 1;
+}
+
+.footer{
+  height: 20vh;
+
+}
+
+.backboard{
+  width: 90%;
+  height: auto;
+  position: fill;
+  border: midnightblue;
+}
+
+.header{
+  background-image: linear-gradient(rgb(236, 236, 236), transparent);
+  height: 8vh;
+}
+
