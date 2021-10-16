@@ -25,7 +25,6 @@ main {
   width: auto;
   height: 80%;
 object-fit: cover;
-  border: midnightblue;
 
 }
 
@@ -44,4 +43,40 @@ object-fit: cover;
   width: 50em;
 }
 
+@media only screen and (max-width: 800px) {
 
+  .backboard{
+    width: 40vh;
+    height: 40vh;
+  object-fit: cover;
+  }
+
+  .gifback{
+    background-image: url();
+    background-color: rgb(100, 187, 245);
+    object-fit: fill;
+  }
+ .buttonsmobile{
+
+  flex: auto;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+ flex-shrink: 1;;
+
+ }
+
+ .flexrow {
+   display: flex;
+   flex-direction: row !important;
+   ;
+ }
+
+ .margincard{
+   margin-top: 6em !important;
+ }
+
+ .newhouse {
+   font-size: 0.8em;
+ }
+}

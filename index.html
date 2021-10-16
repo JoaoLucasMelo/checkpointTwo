@@ -56,39 +56,43 @@
   <main>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-2 text-center align-content-even">
+        <div class="col-md-2 buttonsleft text-center align-content-even">
           <div class="card mt-3 border bg-warning">
             <div class="card-body bg-warning shadow">
               <div class="mb-1">
                 <input class=" mt-1" onclick="buttonHero()" type="image"
                   src="https://i.pinimg.com/originals/08/16/74/08167489913f8436c76f76ae1dbf3fb3.png" height="100"
                   width="80" />
-                <h4 id="goku">Upgrade Hero + --</h4>
+                <h4 id="goku">Upgrade Hero + 200</h4>
               </div>
             </div>
           </div>
-          <div class="card border-0 mt-3 bg-transparent">
-            <div class="card-body bg-transparent">
-              <div id="buttonHouse">
-                <button type="button" onclick="buyHouse()" class="btn btn-light m-2 fs-4">Buy a
-                  House +
-                  --</button>
+          <div class="flexrow">
+            <div class="card margincard border-0 mt-3 bg-transparent">
+              <div class="card-body p-0 bg-transparent">
+                <div id="buttonHouse">
+                  <button type="button" onclick="buyHouse()" class="btn btn-light m-2 fs-4">Buy a
+                    House +
+                    30</button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card mt-3  border-0 bg-transparent">
-            <div class="card-body bg-transparent">
-              <p id="houseWarning" class="m-0 p-0 text-warning">Requires a new House</p>
-              <div id="buttonUpgrade">
-                <button type="button" onclick="buyUpgrade()" class="btn btn-secondary btn m-2 fs-4">Upgrade Resources +
-                  --</button>
+            <div class="card mt-3 border-0 bg-transparent">
+              <div class="card-body p-0 bg-transparent">
+                <p id="houseWarning" class=" newhouse m-0 p-0 text-warning">Requires a new House</p>
+                <div id="buttonUpgrade">
+                  <button type="button" onclick="buyUpgrade()" class="btn btn-secondary btn m-2 fs-4">Upgrade Resources
+                    +
+                    30</button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card mt-3 border-0 bg-transparent">
-            <div class="card-body bg-transparent">
-              <div id="buttonbank">
-                <button type="button" onclick="bank()" class="btn btn-secondary btn m-2 fs-4">Bank Upgrade + --</button>
+            <div class="card mt-3 border-0  bg-transparent">
+              <div class="card-body p-0   bg-transparent">
+                <div id="buttonbank">
+                  <button type="button" onclick="bank()" class="btn btn-secondary btn m-2 fs-4">Bank Upgrade +
+                    150</button>
+                </div>
               </div>
             </div>
           </div>
@@ -97,38 +101,37 @@
           <img class="backboard rounded border border-5 border-light shadow" src="1house.jpg" alt="">
         </div>
         <div class="col-md-2 text-center flex-column align-content-even">
-          <div>
+          <div class="">
             <div class="card mt-3 cardsback border shadow">
               <div class="card-body cardsback">
-                <h5 class="m-0" id="currentClick">Bonus Click + --</h5>
-                <input class="" type="image" src="Iron_Ore-min-removebg-preview.png" onclick="resourceClick()"
-                  height="130" width="130" />
-
+                <h5 class="m-0" id="currentClick">Bonus Click + 0</h5>
+                <input id="clickbutton" class="" type="image" src="Iron_Ore-min-removebg-preview.png"
+                  onclick="resourceClick()" height="130" width="130" />
                 <div class="mt-1 ">
                   <h3 class="m-0" id="resources">
-                    Resources: --
+                    Resources: 0
                   </h3>
-                  <h5 id="autobonus">Bonus per sec + --</h5>
+                  <h5 id="autobonus">Bonus per sec + 1</h5>
                 </div>
               </div>
             </div>
             <div class="card mt-3 border cardsback">
-              <div class="card-body cardsback shadow">
-                <h3 id="house">
-                  <i class="fas fa-home"></i> Houses: --
+              <div class="card-body p-2 cardsback shadow">
+                <h3 class="m-0" id="house">
+                  <i class="fas fa-home"></i> Houses: 1
                 </h3>
               </div>
             </div>
             <div class="card mt-3 border cardsback">
-              <div class="card-body cardsback shadow">
-                <h3 id="upgrades" class="card-body"><i class="fas fa-angle-double-up"></i> Upgrades: -- </h3>
+              <div class="card-body p-1 cardsback shadow">
+                <h3 id="upgrades" class="m-0 card-body"><i class="fas fa-angle-double-up"></i> Upgrades: 0 </h3>
               </div>
             </div>
             <div class="card mt-3 border cardsback">
-              <div class="card-body cardsback shadow">
+              <div class="card-body p-3 cardsback shadow">
                 <h3 class="card-title">HERO</h3>
                 <h4>Chance against MONSTER:</h4>
-                <h3 id="heroPercent">--</h3>
+                <h3 id="heroPercent">20%</h3>
               </div>
             </div>
           </div>
