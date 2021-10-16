@@ -2,7 +2,6 @@ $(window).load(function(){
   $('#myModal').modal('show');
    }); 
 
-
 let resources = 0
 
 let houses = 1
