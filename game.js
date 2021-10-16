@@ -1,4 +1,4 @@
-let resources = 3000
+let resources = 2000
 
 let houses = 1
 
@@ -10,12 +10,9 @@ let bankBought = 0
 
 
 function autoResources(){
-
-  setInterval(function(){ resources += auto ; drawUpdate() }, 1000)
-  setInterval(function(){ monsterAppear() ; deactivatebuttons()}, 25000)
-  setInterval(function(){ boardReappear() ; activatebuttons() }, 30000)
+setInterval(function(){ resources += auto ; drawUpdate() }, 1000)
 }
-autoResources()
+
 
 let clickUpgrades = {
   1: {
@@ -60,19 +57,6 @@ let clickUpgrades = {
   },
 }
 
-let automaticUpgrades = {
-  coinsUpgrade: {
-    price: 600,
-    quantity: 0,
-    multiplier: 20
-  },
-  resourceUpgradeAuto: {
-    price: 100,
-    quantity: 0,
-    multiplier: 1
-  }
-};
-
 let boards = {
   1: '1house.jpg', 
   2: '2houses.jpg', 
@@ -84,6 +68,7 @@ let boards = {
   8: '8houses.jpg', 
   9: '9houses.jpg'
 }
+let boardup = boards[houses]
 
 let bankUpgrades = {
   1: {
@@ -109,8 +94,8 @@ let housesUpgrades = [ 30, 50, 70, 90, 110, 130, 160, 200, 240, 280 ]
 
 function resourceClick(){
   if (upgradesBought == 0){
-  let multi = clickUpgrades[1].multiplier
-  resources += multi
+    let multi = clickUpgrades[1].multiplier
+    resources += multi
   }
   else if  (upgradesBought == 1){
     let multi = clickUpgrades[2].multiplier
@@ -119,113 +104,127 @@ function resourceClick(){
     else if  (upgradesBought == 2){
       let multi = clickUpgrades[3].multiplier
       resources += multi
-      }
-      else if  (upgradesBought == 3){
-        let multi = clickUpgrades[4].multiplier
-        resources += multi
-        }
-        else if  (upgradesBought == 4){
-          let multi = clickUpgrades[5].multiplier
-          resources += multi
-          }
-          else if  (upgradesBought == 5){
-            let multi = clickUpgrades[6].multiplier
-            resources += multi
-            }
-            else if  (upgradesBought == 6){
-              let multi = clickUpgrades[7].multiplier
-              resources += multi
+    }
+    else if  (upgradesBought == 3){
+      let multi = clickUpgrades[4].multiplier
+      resources += multi
+    }
+    else if  (upgradesBought == 4){
+      let multi = clickUpgrades[5].multiplier
+      resources += multi
+    }
+    else if  (upgradesBought == 5){
+      let multi = clickUpgrades[6].multiplier
+      resources += multi
+    }
+    else if  (upgradesBought == 6){
+      let multi = clickUpgrades[7].multiplier
+      resources += multi
               }
               else if  (upgradesBought == 7){
                 let multi = clickUpgrades[8].multiplier
                 resources += multi
-                }
+              }
                 else if  (upgradesBought == 8){
                   let multi = clickUpgrades[9].multiplier
                   resources += multi
-                  }
-                  else if  (upgradesBought == 9){
-                    let multi = clickUpgrades[10].multiplier
-                    resources += multi
-                    }
-drawUpdate()
-}
-
+                }
+                else if  (upgradesBought == 9){
+                  let multi = clickUpgrades[10].multiplier
+                  resources += multi
+                }
+                drawUpdate()
+              }
+              
 
 function changeBoard(){
-var boardUp = boards[houses]
-document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardUp} alt=""></img>`
+  var boardUp = boards[houses]
+  document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardUp} alt=""></img>`
 }
 
 function housebutton(){
   if (houses <= 8){
     document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
-} else {(houses = 9 )  
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
-}
+  } else {(houses = 9 )  
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
+  }
 }
 
 let iHouse = 0
 
 function buyHouse(){
-let hUp = housesUpgrades[iHouse]
-if ( resources >= hUp ){
-  buyHouseFinal()
-  iHouse++
-  resources -= hUp
+  let hUp = housesUpgrades[iHouse]
+  if ( resources >= hUp ){
+    buyHouseFinal()
+    iHouse++
+    resources -= hUp
   housebutton()
 }
 }
 buyHouse()
 function buyHouseFinal(){
   if (houses <= 7){
-houses++
-
-changeBoard()
-} else {(houses = 8 )  
-houses++
-
-changeBoard()
+    houses++
+    
+    changeBoard()
+  } else {(houses = 8 )  
+    houses++
+    
+    changeBoard()
+  }
+  housebutton()
+  
 }
+
 housebutton()
-
-}
-
 
 let iUpgrade = 0
 
 function buyUpgrade(){
-let uUp = housesUpgrades[iUpgrade]
-if ( resources >= uUp && houses >= upgradesBought +1  ){
-  buyUpgradeFinal()
+  let uUp = housesUpgrades[iUpgrade]
+  if ( resources >= uUp && houses >= upgradesBought +1  ){
+    buyUpgradeFinal()
   iUpgrade++
   resources -= uUp
   upgradebutton()
   drawUpdate()
-
+  
 }
 }
 
 function buyUpgradeFinal(){
-if (houses > upgradesBought +1 || houses == upgradesBought+1 ){
-  upgradesBought++  
-}
-if (upgradesBought == 9 ){
-changeBoard()
-}
-drawUpdate()
+  if (houses > upgradesBought +1 || houses == upgradesBought+1 ){
+    upgradesBought++  
+  }
+  if (upgradesBought == 9 ){
+    changeBoard()
+  }
+  drawUpdate()
 }
 
 function upgradebutton(){
   if(upgradesBought == 9 ){  
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
-} else if (upgradesBought+1 <= 10)
+    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
+  } else if (upgradesBought+1 <= 10)
   document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-secondary btn m-2">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
 }
 upgradebutton()
 
+let heroPrice = {
+  1: {price:200},
+  2: {price:400},
+  3: {price:600},
+  4: {price:800}
+}
 
-monsters = {
+let percent = {
+  1: {up: '20%'},
+  2: {up: '40%'},
+  3: {up: '60%'},
+  4: {up: '80%'},
+}
+
+let monsters = {
   1: 'monster1.png',
   2: 'monster2.png',
   3: 'monster3.png',
@@ -234,27 +233,87 @@ monsters = {
   6: 'monster6.png',
   7: 'monster7.png'
 }
-
-function monsterHeroRate1(){
-  let monsterRate = Math.random()
-  let heroRate = Math.random()
-  if ( heroRate >= monsterRate){
-  document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
-  } else if (heroRate < monsterRate)
-  document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
-}
-
 function monsterAppear() {
 document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[1]} alt=""></img>`
-setTimeout( function() {monsterHeroRate1() }, 2500)
+setTimeout( function() {monsterHeroRate1() }, 3000)
 }
 
-function boardReappear(){
-  let boardup = boards[houses]
-  document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardup} alt=""></img>`
+let heroPercentage = 1
+let heroP = 1
+
+function buttonHero(){
+
+if (resources >= heroPrice[heroP].price && heroP < 4){
+heroPercentage++
+resources -= heroPrice[heroP].price
+heroP++
+}else{}
+}
+
+function heroButton(){
+  document.getElementById('goku').innerText = `Upgrade Hero + ${heroPrice[heroPercentage].price}`
+}
+
+function heroPercentBoard(){
+  document.getElementById('heroPercent').innerText = `${percent[heroPercentage].up}`
 }
 
 
+function monsterHeroRate1(){
+  let heroRate = Math.random()
+  if ( heroPercentage == 1){
+    if ( heroRate < 0.2){
+    document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
+    } else {
+      document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
+      resources -= Math.floor(resources/2)
+    }
+  } else if (heroPercentage == 2){
+     if ( heroRate < 0.4){
+    document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
+    } else {
+      document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
+      resources -= Math.floor(resources/2)
+    }
+  } else if (heroPercentage == 3){
+    if ( heroRate < 0.6){
+   document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
+   } else {
+     document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
+     resources -= Math.floor(resources/2)
+   }
+  }else if (heroPercentage == 4){
+    if ( heroRate < 0.8){
+   document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
+   } else {
+     document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
+     resources -= Math.floor(resources/2)
+   }
+  }
+}
+    
+  
+  
+  
+  
+ // if ( heroRate >= monsterRate){
+ //   document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
+ // } else if (heroRate < monsterRate)
+ // document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
+//}
+
+
+function autoboard(){
+  setTimeout(function(){ monsterAppear() ; deactivatebuttons()}, 10000)
+  setTimeout(function(){ document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardup} alt=""></img>` ; activatebuttons() }, 15000)
+}
+
+function timeout(){
+  setInterval(() => {
+    autoboard()
+  }, 20000);
+}
+timeout()
 function bank(){
   if ( resources >= bankUpgrades[1].price && bankBought == 0){
     let bankMulti = bankUpgrades[1].multiplier
@@ -304,11 +363,12 @@ function activatebuttons(){
 
 
 
-
-
+autoResources()
 
 function drawUpdate(){
 
+  heroButton()
+  heroPercentBoard()
   document.getElementById('resources').innerText = `Resources: ${resources}`
   document.getElementById('house').innerText = `Houses: ${houses}`
   document.getElementById('upgrades').innerText = `Upgrades: ${upgradesBought}`

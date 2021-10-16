@@ -26,10 +26,10 @@
       <div class="row">
         <div class="col-md-2 text-center align-content-even">
           <div class="mb-5">
-            <input class=" mt-5 " type="image"
+            <input class=" mt-5" onclick="buttonHero()" type="image"
               src="https://i.pinimg.com/originals/08/16/74/08167489913f8436c76f76ae1dbf3fb3.png" height="100"
               width="80" />
-            <h5>Upgrade Hero + --</h5>
+            <h5 id="goku">Upgrade Hero + --</h5>
           </div>
           <div id="buttonHouse">
             <button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2 ">Buy a
@@ -42,9 +42,6 @@
           </div>
           <div id="buttonbank">
             <button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + --</button>
-          </div>
-          <div>
-            <button type="button" class="btn btn-secondary btn m-2">Upgrade Grain Resource + --</button>
           </div>
         </div>
         <div id="board" class="col-md-8 d-flex flex-nowrap justify-content-center">
@@ -81,7 +78,7 @@
               <div class="card-body  shadow">
                 <h3 class="card-title">HERO</h3>
                 <h5>Chance against MONSTER:</h5>
-                <h4>--</h4>
+                <h3 id="heroPercent">--</h3>
               </div>
             </div>
           </div>
