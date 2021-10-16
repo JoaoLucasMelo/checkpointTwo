@@ -1,3 +1,8 @@
+$(window).load(function(){        
+  $('#myModal').modal('show');
+   }); 
+
+
 let resources = 0
 
 let houses = 1
@@ -139,14 +144,14 @@ function resourceClick(){
 
 function changeBoard(){
   var boardUp = boards[houses]
-  document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardUp} alt=""></img>`
+  document.getElementById('board').innerHTML = `<img class="backboard rounded border border-5 border-light shadow" src= ${boardUp} alt=""></img>`
 }
 
 function housebutton(){
   if (houses <= 8){
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-warning fs-4 m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
   } else {(houses = 9 )  
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
   }
 }
 
@@ -204,9 +209,9 @@ function buyUpgradeFinal(){
 
 function upgradebutton(){
   if(upgradesBought == 9 ){  
-    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
+    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
   } else if (upgradesBought+1 <= 10)
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-secondary btn m-2">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
 }
 upgradebutton()
 
@@ -305,7 +310,7 @@ function monsterHeroRate1(){
 
 function autoboard(){
   setTimeout(function(){ monsterAppear() ; deactivatebuttons()}, 10000)
-  setTimeout(function(){ document.getElementById('board').innerHTML = `<img class="backboard rounded border border-3 border-success shadow" src= ${boardup} alt=""></img>` ; activatebuttons() }, 15000)
+  setTimeout(function(){ document.getElementById('board').innerHTML = `<img class="backboard rounded border border-5 border-light shadow" src= ${boardup} alt=""></img>` ; activatebuttons() }, 15000)
 }
 
 function timeout(){
@@ -314,31 +319,32 @@ function timeout(){
   }, 20000);
 }
 timeout()
+
 function bank(){
   if ( resources >= bankUpgrades[1].price && bankBought == 0){
     let bankMulti = bankUpgrades[1].multiplier
     auto += bankMulti
     resources -= bankUpgrades[1].price
     bankBought ++
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + ${bankUpgrades[2].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[2].price}</button>`
 } else if (resources >= bankUpgrades[2].price && bankBought == 1){
   let bankMulti = bankUpgrades[2].multiplier
   auto += bankMulti
   resources -= bankUpgrades[2].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + ${bankUpgrades[3].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[3].price}</button>`
 } else if (resources >= bankUpgrades[3].price && bankBought == 2){
   let bankMulti = bankUpgrades[3].multiplier
   auto += bankMulti
   resources -= bankUpgrades[3].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + ${bankUpgrades[4].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[4].price}</button>`
 } else if (resources >= bankUpgrades[4].price && bankBought == 3){
   let bankMulti = bankUpgrades[4].multiplier
   auto += bankMulti
   resources -= bankUpgrades[4].price
  bankBought ++
- document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn disabled btn-secondary btn m-2 data-bs-toggle="button" autocomplete="off"">BANK UPGRADE MAX</button>`
+ document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">BANK UPGRADE MAX</button>`
 }
 }
 
@@ -346,24 +352,28 @@ function bank(){
 //setTimeout(function(){ ; }, 3000);
 
 function bankbuttonstart(){
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + ${bankUpgrades[1].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[1].price}</button>`
 }
 bankbuttonstart()
 
 function deactivatebuttons(){
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">Buy a House + ${housesUpgrades[houses-1]}</button>`
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2" disabled data-bs-toggle="button" autocomplete="off">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>`
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Buy a House + ${housesUpgrades[houses-1]}</button>`
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>`
 }
 function activatebuttons(){
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-secondary btn m-2">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
   drawUpdate()
   changeBoard()
 }
 
-
-
-
+function houseWarning(){
+if (upgradesBought == houses){
+document.getElementById('houseWarning').innerHTML = `<p id="houseWarning" class="m-0 p-0 text-warning">Requires a new House</p>`
+} else {
+  document.getElementById('houseWarning').innerHTML = `<p id="houseWarning" class="m-0 p-0 text-warning">Upgrade available</p>`
+}
+}
 
 autoResources()
 
@@ -371,8 +381,10 @@ function drawUpdate(){
 
   heroButton()
   heroPercentBoard()
+  houseWarning()
+  document.getElementById('autobonus').innerText = `Bonus per sec + ${auto}`
   document.getElementById('resources').innerText = `Resources: ${resources}`
-  document.getElementById('house').innerText = `Houses: ${houses}`
-  document.getElementById('upgrades').innerText = `Upgrades: ${upgradesBought}`
+  document.getElementById('house').innerHTML = `<i class="fas fa-home"></i> Houses: ${houses}`
+  document.getElementById('upgrades').innerHTML = `<i class="fas fa-angle-double-up"></i> Upgrades: ${upgradesBought}`
   document.getElementById('currentClick').innerText = `Bonus Click + ${upgradesBought}`
 }

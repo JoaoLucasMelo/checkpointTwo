@@ -6,6 +6,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <link rel="stylesheet" href="game.css">
 
   <!-- Bootstrap CSS v5.0.2 -->
@@ -15,6 +20,33 @@
 </head>
 
 <body class="gifback">
+  <div id="myModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">Welcome to Island of Monsters!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>Help the village grow, but, be carefull with the <b>MONSTER</b></h3>
+          <h3>_</h3>
+          <h3> the Monster attacks the village <b>randomly</b> and
+            <b>steals
+              50%</b> of your Resources.
+            <h3>_</h3>
+            <h3> Hopefully our <b>HERO</b> can defeat him before it's too late!
+            </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">START!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+
   <header>
     <div class="container-fluid">
       <div class="row text-center header">
@@ -25,59 +57,77 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-2 text-center align-content-even">
-          <div class="mb-5">
-            <input class=" mt-5" onclick="buttonHero()" type="image"
-              src="https://i.pinimg.com/originals/08/16/74/08167489913f8436c76f76ae1dbf3fb3.png" height="100"
-              width="80" />
-            <h5 id="goku">Upgrade Hero + --</h5>
+          <div class="card mt-3 border bg-warning">
+            <div class="card-body bg-warning shadow">
+              <div class="mb-1">
+                <input class=" mt-1" onclick="buttonHero()" type="image"
+                  src="https://i.pinimg.com/originals/08/16/74/08167489913f8436c76f76ae1dbf3fb3.png" height="100"
+                  width="80" />
+                <h4 id="goku">Upgrade Hero + --</h4>
+              </div>
+            </div>
           </div>
-          <div id="buttonHouse">
-            <button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2 ">Buy a
-              House +
-              --</button>
+          <div class="card border-0 mt-3 bg-transparent">
+            <div class="card-body bg-transparent">
+              <div id="buttonHouse">
+                <button type="button" onclick="buyHouse()" class="btn btn-light m-2 fs-4">Buy a
+                  House +
+                  --</button>
+              </div>
+            </div>
           </div>
-          <div id="buttonUpgrade">
-            <button type="button" onclick="buyUpgrade()" class="btn btn-secondary btn m-2">Upgrade Resources +
-              --</button>
+          <div class="card mt-3  border-0 bg-transparent">
+            <div class="card-body bg-transparent">
+              <p id="houseWarning" class="m-0 p-0 text-warning">Requires a new House</p>
+              <div id="buttonUpgrade">
+                <button type="button" onclick="buyUpgrade()" class="btn btn-secondary btn m-2 fs-4">Upgrade Resources +
+                  --</button>
+              </div>
+            </div>
           </div>
-          <div id="buttonbank">
-            <button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + --</button>
+          <div class="card mt-3 border-0 bg-transparent">
+            <div class="card-body bg-transparent">
+              <div id="buttonbank">
+                <button type="button" onclick="bank()" class="btn btn-secondary btn m-2 fs-4">Bank Upgrade + --</button>
+              </div>
+            </div>
           </div>
         </div>
         <div id="board" class="col-md-8 d-flex flex-nowrap justify-content-center">
-          <img class="backboard rounded border border-3 border-success shadow" src="1house.jpg" alt="">
+          <img class="backboard rounded border border-5 border-light shadow" src="1house.jpg" alt="">
         </div>
         <div class="col-md-2 text-center flex-column align-content-even">
           <div>
-            <div class="card mt-5 bg-transparent border shadow">
-              <div class="card-body bg-transparent">
-                <h5 id="currentClick">Bonus Click + --</h5>
+            <div class="card mt-3 cardsback border shadow">
+              <div class="card-body cardsback">
+                <h5 class="m-0" id="currentClick">Bonus Click + --</h5>
                 <input class="" type="image" src="Iron_Ore-min-removebg-preview.png" onclick="resourceClick()"
                   height="130" width="130" />
-                <h5></h5>
-              </div>
-              <div class="mt-1 ">
-                <h4 id="resources">
-                  Resources: --
-                </h4>
-              </div>
-            </div>
-            <div class="card mt-3 border bg-transparent">
-              <div class="card-body bg-transparent shadow">
-                <h4 id="house">
-                  Houses: --
-                </h4>
+
+                <div class="mt-1 ">
+                  <h3 class="m-0" id="resources">
+                    Resources: --
+                  </h3>
+                  <h5 id="autobonus">Bonus per sec + --</h5>
+                </div>
               </div>
             </div>
-            <div class="card mt-3 border bg-transparent">
-              <div class="card-body shadow">
-                <h4 id="upgrades" class="card-body"> Upgrades: -- </h4>
+            <div class="card mt-3 border cardsback">
+              <div class="card-body cardsback shadow">
+                <h3 id="house">
+                  <i class="fas fa-home"></i> Houses: --
+                </h3>
               </div>
             </div>
-            <div class="card mt-3 border bg-transparent">
-              <div class="card-body  shadow">
+            <div class="card mt-3 border cardsback">
+              <div class="card-body cardsback shadow">
+                <h3 id="upgrades" class="card-body"><i class="fas fa-angle-double-up"></i> Upgrades: -- </h3>
+              </div>
+            </div>
+            <div class="card mt-3 border cardsback">
+              <div class="card-body cardsback shadow">
                 <h3 class="card-title">HERO</h3>
-                <h5>Chance against MONSTER:</h5>
+                <h4>Chance against MONSTER:</h4>
                 <h3 id="heroPercent">--</h3>
               </div>
             </div>

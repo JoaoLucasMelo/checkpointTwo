@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: rgb(238, 238, 238);
+  font-family: 'IM Fell English SC', serif !important;
 }
 
 .gifback{
@@ -16,24 +17,25 @@ main {
 }
 
 .footer{
-  height: 10vh;
-
+  background-image: linear-gradient(transparent ,rgb(236, 236, 236) );
+  height: 5vh;
 }
 
 .backboard{
-  width: 90%;
-  height: auto;
-  position: fill;
+  width: auto;
+  height: 80%;
+object-fit: cover;
   border: midnightblue;
+
 }
 
 .header{
   background-image: linear-gradient(rgb(236, 236, 236), transparent);
-  height: 8vh;
+  height: 5vh;
 }
 
 .cardsback{
-  background: transparent;
+  background: rgb(81, 133, 201);
 
 }
 
@@ -41,3 +43,5 @@ main {
   height: 40em;
   width: 50em;
 }
+
+
