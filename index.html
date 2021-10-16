@@ -31,40 +31,59 @@
               width="80" />
             <h5>Upgrade Hero + --</h5>
           </div>
-          <div>
-            <button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2">Buy a House +
+          <div id="buttonHouse">
+            <button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2 ">Buy a
+              House +
               --</button>
           </div>
-          <div>
+          <div id="buttonUpgrade">
             <button type="button" onclick="buyUpgrade()" class="btn btn-secondary btn m-2">Upgrade Resources +
               --</button>
           </div>
-          <div>
-            <button type="button" class="btn btn-secondary btn m-2">Upgrade Wood Resource + --</button>
+          <div id="buttonbank">
+            <button type="button" onclick="bank()" class="btn btn-secondary btn m-2">Bank Upgrade + --</button>
           </div>
           <div>
             <button type="button" class="btn btn-secondary btn m-2">Upgrade Grain Resource + --</button>
           </div>
         </div>
-        <div class="col-md-8 d-flex flex-nowrap justify-content-center">
+        <div id="board" class="col-md-8 d-flex flex-nowrap justify-content-center">
           <img class="backboard rounded border border-3 border-success shadow" src="1house.jpg" alt="">
         </div>
         <div class="col-md-2 text-center flex-column align-content-even">
           <div>
-            <input class="mt-5" type="image" src="Iron_Ore-min-removebg-preview.png" onclick="resourceClick()"
-              height="130" width="130" />
-            <h5></h5>
-          </div>
-          <div class="mt-5">
-            <h4 id="resources">
-              Resources: --
-            </h4>
-            <h4 id="house">
-              Houses: --
-            </h4>
-            <h4 id="upgrades">
-              Upgrades: --
-            </h4>
+            <div class="card mt-5 bg-transparent border shadow">
+              <div class="card-body bg-transparent">
+                <h5 id="currentClick">Bonus Click + --</h5>
+                <input class="" type="image" src="Iron_Ore-min-removebg-preview.png" onclick="resourceClick()"
+                  height="130" width="130" />
+                <h5></h5>
+              </div>
+              <div class="mt-1 ">
+                <h4 id="resources">
+                  Resources: --
+                </h4>
+              </div>
+            </div>
+            <div class="card mt-3 border bg-transparent">
+              <div class="card-body bg-transparent shadow">
+                <h4 id="house">
+                  Houses: --
+                </h4>
+              </div>
+            </div>
+            <div class="card mt-3 border bg-transparent">
+              <div class="card-body shadow">
+                <h4 id="upgrades" class="card-body"> Upgrades: -- </h4>
+              </div>
+            </div>
+            <div class="card mt-3 border bg-transparent">
+              <div class="card-body  shadow">
+                <h3 class="card-title">HERO</h3>
+                <h5>Chance against MONSTER:</h5>
+                <h4>--</h4>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -83,7 +102,6 @@
     </div>
 
   </footer>
-
 
   <script src="game.js"></script>
   <!-- Bootstrap JavaScript Libraries -->

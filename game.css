@@ -16,7 +16,7 @@ main {
 }
 
 .footer{
-  height: 20vh;
+  height: 10vh;
 
 }
 
@@ -32,3 +32,12 @@ main {
   height: 8vh;
 }
 
+.cardsback{
+  background: transparent;
+
+}
+
+.monstersize{
+  height: 40em;
+  width: 50em;
+}
