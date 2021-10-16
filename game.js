@@ -1,4 +1,4 @@
-let resources = 2000
+let resources = 0
 
 let houses = 1
 
@@ -357,6 +357,8 @@ function deactivatebuttons(){
 function activatebuttons(){
   document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-secondary btn m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
   document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-secondary btn m-2">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
+  drawUpdate()
+  changeBoard()
 }
 
 
