@@ -18,7 +18,6 @@ function autoResources(){
 setInterval(function(){ resources += auto ; drawUpdate() }, 1000)
 }
 
-
 let clickUpgrades = {
   1: {
     price: 30,
@@ -96,7 +95,6 @@ let bankUpgrades = {
 
 let housesUpgrades = [ 30, 50, 70, 90, 110, 130, 160, 200, 240, 280 ]
 
-
 function resourceClick(){
   if (upgradesBought == 0 && (Enabled == true)){
     let multi = clickUpgrades[1].multiplier
@@ -107,40 +105,39 @@ function resourceClick(){
     resources += multi
     }
     else if  (upgradesBought == 2  && (Enabled == true)){
-      let multi = clickUpgrades[3].multiplier
-      resources += multi
+    let multi = clickUpgrades[3].multiplier
+    resources += multi
     }
     else if  (upgradesBought == 3  && (Enabled == true)){
-      let multi = clickUpgrades[4].multiplier
-      resources += multi
+    let multi = clickUpgrades[4].multiplier
+    resources += multi
     }
     else if  (upgradesBought == 4  && (Enabled == true)){
-      let multi = clickUpgrades[5].multiplier
-      resources += multi
+    let multi = clickUpgrades[5].multiplier
+    resources += multi
     }
     else if  (upgradesBought == 5  && (Enabled == true)){
-      let multi = clickUpgrades[6].multiplier
-      resources += multi
+    let multi = clickUpgrades[6].multiplier
+    resources += multi
     }
     else if  (upgradesBought == 6  && (Enabled == true)){
-      let multi = clickUpgrades[7].multiplier
-      resources += multi
-              }
-              else if  (upgradesBought == 7  && (Enabled == true)){
-                let multi = clickUpgrades[8].multiplier
-                resources += multi
-              }
-                else if  (upgradesBought == 8  && (Enabled == true)){
-                  let multi = clickUpgrades[9].multiplier
-                  resources += multi
-                }
-                else if  (upgradesBought == 9  && (Enabled == true)){
-                  let multi = clickUpgrades[10].multiplier
-                  resources += multi
-                }
-                drawUpdate()
-              }
-              
+    let multi = clickUpgrades[7].multiplier
+    resources += multi
+    }
+    else if  (upgradesBought == 7  && (Enabled == true)){
+    let multi = clickUpgrades[8].multiplier
+    resources += multi
+    }
+    else if  (upgradesBought == 8  && (Enabled == true)){
+    let multi = clickUpgrades[9].multiplier
+    resources += multi
+    }
+    else if  (upgradesBought == 9  && (Enabled == true)){
+    let multi = clickUpgrades[10].multiplier
+    resources += multi
+}
+drawUpdate()
+}
 
 function changeBoard(){
   var boardUp = boards[houses]
@@ -149,9 +146,9 @@ function changeBoard(){
 
 function housebutton(){
   if (houses <= 8){
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-warning fs-4 m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="grow btn btn-warning fs-4 m-2">Buy a House + ${housesUpgrades[houses-1]}</button>`
   } else {(houses = 9 )  
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
   }
 }
 
@@ -167,6 +164,7 @@ function buyHouse(){
 }
 }
 buyHouse()
+
 function buyHouseFinal(){
   if (houses <= 7){
     houses++
@@ -209,9 +207,9 @@ function buyUpgradeFinal(){
 
 function upgradebutton(){
   if(upgradesBought == 9 ){  
-    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
+    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
   } else if (upgradesBought+1 <= 10)
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="grow btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
 }
 upgradebutton()
 
@@ -266,7 +264,6 @@ function heroPercentBoard(){
   document.getElementById('heroPercent').innerText = `${percent[heroPercentage].up}`
 }
 
-
 function monsterHeroRate1(){
   let heroRate = Math.random()
   if ( heroPercentage == 1){
@@ -299,17 +296,12 @@ function monsterHeroRate1(){
    }
   }
 }
-    
-  
-  
-  
   
  // if ( heroRate >= monsterRate){
  //   document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[2]} alt=""></img>`
  // } else if (heroRate < monsterRate)
  // document.getElementById('board').innerHTML = `<img class=" rounded monstersize"src= ${monsters[3]} alt=""></img>`
 //}
-
 
 function autoboard(){
   setTimeout(function(){ monsterAppear() ; deactivatebuttons()}, 10000)
@@ -329,25 +321,25 @@ function bank(){
     auto += bankMulti
     resources -= bankUpgrades[1].price
     bankBought ++
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[2].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[2].price}</button>`
 } else if (resources >= bankUpgrades[2].price && bankBought == 1 && Enabled == true ){
   let bankMulti = bankUpgrades[2].multiplier
   auto += bankMulti
   resources -= bankUpgrades[2].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[3].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[3].price}</button>`
 } else if (resources >= bankUpgrades[3].price && bankBought == 2 && Enabled == true ){
   let bankMulti = bankUpgrades[3].multiplier
   auto += bankMulti
   resources -= bankUpgrades[3].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[4].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[4].price}</button>`
 } else if (resources >= bankUpgrades[4].price && bankBought == 3 && Enabled == true ){
   let bankMulti = bankUpgrades[4].multiplier
   auto += bankMulti
   resources -= bankUpgrades[4].price
  bankBought ++
- document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">AUTO UPGRADE MAX</button>`
+ document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">AUTO UPGRADE MAX</button>`
 }
 }
 
@@ -355,22 +347,23 @@ function bank(){
 //setTimeout(function(){ ; }, 3000);
 
 function bankbuttonstart(){
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[1].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[1].price}</button>`
 }
 bankbuttonstart()
 
 function deactivatebuttons(){
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Under Attack</button>`
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Under Attack</button>`
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Under Attack</button>`
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">Under Attack</button>`
   Enabled =  false
 }
+
 function activatebuttons(){
   if(houses <= 8 && upgradesBought+1 <= 10){
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`
-  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="grow btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="grow btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
   } else if (houses = 9 && upgradesBought == 9){
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
-    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
+    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
+    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
   }
   Enabled = true
   drawUpdate()

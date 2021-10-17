@@ -43,6 +43,14 @@ object-fit: cover;
   width: 50em;
 }
 
+.grow { 
+  transition: all .2s ease-in-out; 
+  }
+  
+  .grow:hover { 
+  transform: scale(1.1); 
+  }
+
 @media only screen and (max-width: 800px) {
 
   .backboard{
