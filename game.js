@@ -355,7 +355,7 @@ function bank(){
 //setTimeout(function(){ ; }, 3000);
 
 function bankbuttonstart(){
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[1].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[1].price}</button>`
 }
 bankbuttonstart()
 
