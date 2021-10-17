@@ -329,25 +329,25 @@ function bank(){
     auto += bankMulti
     resources -= bankUpgrades[1].price
     bankBought ++
-    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[2].price}</button>`
+    document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[2].price}</button>`
 } else if (resources >= bankUpgrades[2].price && bankBought == 1 && Enabled == true ){
   let bankMulti = bankUpgrades[2].multiplier
   auto += bankMulti
   resources -= bankUpgrades[2].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[3].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[3].price}</button>`
 } else if (resources >= bankUpgrades[3].price && bankBought == 2 && Enabled == true ){
   let bankMulti = bankUpgrades[3].multiplier
   auto += bankMulti
   resources -= bankUpgrades[3].price
   bankBought ++
-  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Bank Upgrade + ${bankUpgrades[4].price}</button>`
+  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[4].price}</button>`
 } else if (resources >= bankUpgrades[4].price && bankBought == 3 && Enabled == true ){
   let bankMulti = bankUpgrades[4].multiplier
   auto += bankMulti
   resources -= bankUpgrades[4].price
  bankBought ++
- document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">BANK UPGRADE MAX</button>`
+ document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">AUTO UPGRADE MAX</button>`
 }
 }
 
