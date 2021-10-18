@@ -2,7 +2,7 @@ $(window).load(function(){
   $('#myModal').modal('show');
    }); 
 
-let resources = 0
+let resources = 1000000
 
 let houses = 1
 
@@ -13,6 +13,8 @@ let upgradesBought = 0
 let bankBought = 0
 
 let Enabled = true
+
+let autoupbought = 0
 
 function autoResources(){
 setInterval(function(){ resources += auto ; drawUpdate() }, 1000)
@@ -320,24 +322,28 @@ function bank(){
     let bankMulti = bankUpgrades[1].multiplier
     auto += bankMulti
     resources -= bankUpgrades[1].price
+    autoupbought++
     bankBought ++
     document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[2].price}</button>`
 } else if (resources >= bankUpgrades[2].price && bankBought == 1 && Enabled == true ){
   let bankMulti = bankUpgrades[2].multiplier
   auto += bankMulti
   resources -= bankUpgrades[2].price
+  autoupbought++
   bankBought ++
   document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[3].price}</button>`
 } else if (resources >= bankUpgrades[3].price && bankBought == 2 && Enabled == true ){
   let bankMulti = bankUpgrades[3].multiplier
   auto += bankMulti
   resources -= bankUpgrades[3].price
+  autoupbought++
   bankBought ++
   document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn btn-warning btn m-2 fs-4">Auto Upgrade + ${bankUpgrades[4].price}</button>`
 } else if (resources >= bankUpgrades[4].price && bankBought == 3 && Enabled == true ){
   let bankMulti = bankUpgrades[4].multiplier
   auto += bankMulti
   resources -= bankUpgrades[4].price
+  autoupbought++
  bankBought ++
  document.getElementById('buttonbank').innerHTML = `<button type="button" onclick="bank()" class="grow btn disabled btn-secondary btn m-2 fs-4 data-bs-toggle="button" autocomplete="off"">AUTO UPGRADE MAX</button>`
 }
@@ -389,6 +395,8 @@ function drawUpdate(){
   heroButton()
   heroPercentBoard()
   houseWarning()
+  document.getElementById('heronv').innerText = `HERO nv.${heroP}`
+  document.getElementById('autowarning'). innerHTML = `<p id="autoWarning" class=" newhouse m-0 p-0 text-warning">Auto Upgrades Bought = ${autoupbought}</p>`
   document.getElementById('autobonus').innerText = `Bonus per sec + ${auto}`
   document.getElementById('resources').innerText = `Resources: ${resources}`
   document.getElementById('house').innerHTML = `<i class="fas fa-home"></i> Houses: ${houses}`
