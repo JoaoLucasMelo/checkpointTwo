@@ -2,7 +2,7 @@ $(window).load(function(){
   $('#myModal').modal('show');
    }); 
 
-let resources = 4000
+let resources = 0
 
 let houses = 1
 
@@ -358,7 +358,7 @@ function deactivatebuttons(){
 }
 
 function activatebuttons(){
-  if (houses = 9){
+  if (houses == 9){
   document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
  } else if(houses <= 8){
   document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="grow btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`}
