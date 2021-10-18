@@ -2,7 +2,7 @@ $(window).load(function(){
   $('#myModal').modal('show');
    }); 
 
-let resources = 0
+let resources = 4000
 
 let houses = 1
 
@@ -358,12 +358,14 @@ function deactivatebuttons(){
 }
 
 function activatebuttons(){
-  if(houses <= 8 && upgradesBought+1 <= 10){
-  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="grow btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`
+  if (houses = 9){
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
+ } else if(houses <= 8){
+  document.getElementById('buttonHouse').innerHTML = `<button type="button" onclick="buyHouse()" class="grow btn btn-warning btn m-2 fs-4">Buy a House + ${housesUpgrades[houses-1]}</button>`}
+  if (upgradesBought == 9){
+  document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
+  } else if(upgradesBought+1 <= 10){
   document.getElementById('buttonUpgrade').innerHTML = `<button type="button" onclick="buyUpgrade()"class="grow btn btn-warning btn m-2 fs-4">Upgrade Resources + ${clickUpgrades[upgradesBought+1].price}</button>` 
-  } else if (houses = 9 && upgradesBought == 9){
-    document.getElementById('buttonHouse').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">HOUSE MAX</button>`
-    document.getElementById('buttonUpgrade').innerHTML = `<button type="button" class="grow btn btn-secondary m-2 fs-4" disabled data-bs-toggle="button" autocomplete="off">UPGRADE MAX</button>`
   }
   Enabled = true
   drawUpdate()
@@ -371,8 +373,10 @@ function activatebuttons(){
 }
 
 function houseWarning(){
-if (upgradesBought == houses){
+if (upgradesBought == houses && upgradesBought <= 8){
 document.getElementById('houseWarning').innerHTML = `<p id="houseWarning" class="m-0 p-0 text-warning">Requires a new House</p>`
+} else if (upgradesBought == 9){
+  document.getElementById('houseWarning').innerHTML = `<p id="houseWarning" class="m-0 p-0 text-warning"></p>`
 } else {
   document.getElementById('houseWarning').innerHTML = `<p id="houseWarning" class="m-0 p-0 text-warning">Upgrade available</p>`
 }
