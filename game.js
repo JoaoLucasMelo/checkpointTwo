@@ -2,7 +2,7 @@ $(window).load(function(){
   $('#myModal').modal('show');
    }); 
 
-let resources = 1000000
+let resources = 0
 
 let houses = 1
 
